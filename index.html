@@ -119,6 +119,11 @@
   .company h3{font-family:'Archivo',sans-serif;font-size:26px;font-weight:500;letter-spacing:-.015em;line-height:1.1}
   .company .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2)}
   .company p{font-size:14px;line-height:1.65;color:var(--ink-2);margin-top:auto;font-weight:300}
+  .chain{display:flex;flex-direction:column;gap:26px;padding-top:4px}
+  .chain__i{display:flex;flex-direction:column;gap:4px;padding-left:16px;border-left:1px solid var(--rule)}
+  .chain__n{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;color:var(--ink-3)}
+  .chain__t{font-size:14px;color:var(--ink)}
+  .chain__d{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--ink-2)}
 
   .contact{display:grid;grid-template-columns:220px 1fr;gap:64px}
   .contact .info{display:grid;grid-template-columns:1fr 1fr;gap:64px;max-width:760px}
@@ -149,6 +154,10 @@
     .section-head{margin-bottom:48px}
     .companies .grid{grid-template-columns:1fr}
     .company{min-height:auto}
+    /* En móvil la cadena se lee mejor en fila que apilada: son tres palabras. */
+    .chain{flex-direction:row;gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:20px 0}
+    .chain__i{flex:1;padding-left:0;border-left:none}
+    .chain__i+.chain__i{padding-left:14px;border-left:1px solid var(--rule)}
     .contact .info{grid-template-columns:1fr;gap:32px}
     footer{flex-direction:column;align-items:flex-start;padding:32px 24px;text-align:left}
     footer .links a{margin:0 16px 0 0}
@@ -208,20 +217,31 @@
       <h2>Dos sociedades operativas y un proyecto en marcha. <span class="em">Cada una, su oficio.</span></h2>
     </div>
     <div class="companies">
-      <div></div>
+      <!-- Columna izquierda: la cadena del grupo en tres líneas. Es la misma
+           secuencia y las mismas palabras que usan la banda de pie de
+           cfsgrip.com y la de berdis.es, para que quien salte de una web a
+           otra reconozca la estructura sin tener que deducirla. -->
+      <div class="chain">
+        <div class="chain__i"><span class="chain__n">01</span><span class="chain__t">Holding</span><span class="chain__d">Collider Ventures</span></div>
+        <div class="chain__i"><span class="chain__n">02</span><span class="chain__t">Las máquinas</span><span class="chain__d">CFS Grip</span></div>
+        <div class="chain__i"><span class="chain__n">03</span><span class="chain__t">El servicio</span><span class="chain__d">Berdis</span></div>
+      </div>
       <div class="grid">
         <div class="company">
           <div class="num">№ 001</div>
           <h3>CFS Grip</h3>
-          <div class="tag">Equipo técnico · desde 2017</div>
-          <p>Alquiler de equipo de grip y movimiento de cámara para producción audiovisual. Nacida en Bermeo, hoy opera desde Derio con servicio a productoras nacionales e internacionales.</p>
+          <!-- La etiqueta dice el PAPEL dentro del grupo, con las mismas
+               palabras que la banda de grupo de cfsgrip.com y berdis.es:
+               holding → propietaria del equipo → servicio y facturación. -->
+          <div class="tag">Propietaria del equipo · desde 2017</div>
+          <p>Alquiler de equipo de grip y movimiento de cámara para producción audiovisual. Es la sociedad que posee la flota, el taller y el almacén. Nacida en Bermeo, hoy opera desde Derio (Bilbao) con servicio a productoras nacionales e internacionales.</p>
           <p class="co-link"><a href="https://www.cfsgrip.com">Catálogo y fichas técnicas en cfsgrip.com &rarr;</a></p>
         </div>
         <div class="company">
           <div class="num">№ 002</div>
           <h3>Berdis</h3>
-          <div class="tag">Servicios y operaciones</div>
-          <p>Nombre comercial de Urdaibai Eco Service, S.L. Es la sociedad que trata con la producción: presupuesta, contrata, entrega y factura. Coordina personal, logística y servicios sobre rodaje.</p>
+          <div class="tag">Servicio y facturación</div>
+          <p>Nombre comercial de Urdaibai Eco Service, S.L. Es la sociedad que trata con la producción: presupuesta, contrata, entrega y factura. El equipo de grip que pone a trabajar es el de CFS Grip; coordina además personal, logística y el rental de iluminación y cámara con casas especializadas.</p>
           <!-- PENDIENTE: activar el enlace en cuanto berdis.es resuelva por DNS
                y se levante el noindex de esa web.
                Ojo: el dominio es .es, NO .com. `berdis.com` es de otra empresa
