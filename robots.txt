@@ -1,0 +1,7 @@
+User-Agent: *
+Allow: /
+Disallow: /privacidad
+Disallow: /aviso-legal
+
+Host: https://colliderventure.com
+Sitemap: https://colliderventure.com/sitemap.xml
